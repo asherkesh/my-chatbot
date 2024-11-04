@@ -3,11 +3,11 @@ import os
 from flask import Flask, request, jsonify
 
 app = Flask(__name__)
-openai.api_key = os.getenv("OPENAI_API_KEY")  # API-ключ будет хранитьс€ в переменных окружени€
+openai.api_key = os.getenv("OPENAI_API_KEY")  
 
 @app.route('/chat', methods=['POST'])
 def chat():
-    user_input = request.json.get('message')  # ѕолучаем сообщение от пользовател€
+    user_input = request.json.get('message')  
     response = openai.ChatCompletion.create(
         model="gpt-4",
         messages=[{"role": "user", "content": user_input}]
